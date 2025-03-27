@@ -2,6 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import enTranslation from "../locales/en.json";
 import frTranslation from "../locales/fr.json";
+import esTranslation from "../locales/es.json";
 
 // Initialize i18next
 i18n
@@ -13,6 +14,9 @@ i18n
       },
       fr: {
         translation: frTranslation
+      },
+      es: {
+        translation: esTranslation
       }
     },
     lng: "fr", // Default language

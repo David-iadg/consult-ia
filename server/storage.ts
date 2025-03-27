@@ -180,7 +180,10 @@ export class MemStorage implements IStorage {
   
   // Chatbot QA
   async getAllChatbotQa(language = "fr"): Promise<ChatbotQa[]> {
-    return Array.from(this.chatbotQa.values()).filter(qa => qa.language === language);
+    console.log(`Getting chatbot QA for language: ${language}`);
+    const results = Array.from(this.chatbotQa.values()).filter(qa => qa.language === language);
+    console.log(`Found ${results.length} QA pairs for language ${language}`);
+    return results;
   }
   
   async createChatbotQa(insertQa: InsertChatbotQa): Promise<ChatbotQa> {
@@ -286,6 +289,7 @@ export class MemStorage implements IStorage {
     
     // Sample chatbot QA pairs
     const sampleChatbotQA = [
+      // French QA pairs
       {
         language: "fr",
         keywords: ["transformation", "digitale", "numérique"],
@@ -296,7 +300,7 @@ export class MemStorage implements IStorage {
         language: "fr",
         keywords: ["ia", "intelligence artificielle", "automatisation"],
         question: "Quelles solutions d'IA proposez-vous?",
-        answer: "Nos solutions d'IA sont conçues pour automatiser les processus et améliorer la prise de décision. Nous proposons des solutions sur mesure adaptées à votre secteur d'activité, incluant l'analyse prédictive, les chatbots intelligents, l'automatisation de processus et l'aide à la décision basée sur les données."
+        answer: "Nos solutions d'IA sont conçues pour automatiser les processus et améliorer la prise de décision. Nous proposons des solutions sur mesure adaptées à votre secteur d'activité, incluant l'analyse prédictive, les chatbots intelligents, l'automatisation de processus et l'aide à la décision basée sur le machine learning."
       },
       {
         language: "fr",
@@ -304,6 +308,7 @@ export class MemStorage implements IStorage {
         question: "Quels sont vos tarifs?",
         answer: "Nos tarifs varient selon vos besoins spécifiques. Nous proposons un premier rendez-vous gratuit pour évaluer votre projet et vous fournir un devis détaillé. Nous adaptons nos offres à différents budgets tout en garantissant un service de qualité et des résultats concrets."
       },
+      // English QA pairs
       {
         language: "en",
         keywords: ["transformation", "digital"],
@@ -321,6 +326,25 @@ export class MemStorage implements IStorage {
         keywords: ["pricing", "price", "cost", "budget"],
         question: "What are your rates?",
         answer: "Our rates vary according to your specific needs. We offer a free initial consultation to assess your project and provide you with a detailed quote. We adapt our offerings to different budgets while ensuring quality service and concrete results."
+      },
+      // Spanish QA pairs
+      {
+        language: "es",
+        keywords: ["transformación", "digital"],
+        question: "¿Qué ofrecen en términos de transformación digital?",
+        answer: "La transformación digital es el núcleo de nuestra experiencia. Acompañamos a las empresas en su transición hacia lo digital con soluciones a medida. Analizamos sus procesos existentes, identificamos oportunidades de mejora e implementamos tecnologías adaptadas a sus necesidades específicas."
+      },
+      {
+        language: "es",
+        keywords: ["ia", "inteligencia artificial", "automatización"],
+        question: "¿Qué soluciones de IA ofrecen?",
+        answer: "Nuestras soluciones de IA están diseñadas para automatizar procesos y mejorar la toma de decisiones. Ofrecemos soluciones personalizadas adaptadas a su sector, incluyendo análisis predictivo, chatbots inteligentes, automatización de procesos y soporte a la decisión basado en machine learning."
+      },
+      {
+        language: "es",
+        keywords: ["precio", "coste", "tarifa", "presupuesto"],
+        question: "¿Cuáles son sus tarifas?",
+        answer: "Nuestras tarifas varían según sus necesidades específicas. Ofrecemos una primera consulta gratuita para evaluar su proyecto y proporcionarle un presupuesto detallado. Adaptamos nuestras ofertas a diferentes presupuestos, garantizando siempre un servicio de calidad y resultados concretos."
       }
     ];
     

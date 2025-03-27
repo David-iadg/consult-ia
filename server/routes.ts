@@ -132,7 +132,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Chatbot API
   app.get("/api/chatbot/qa", async (req: Request, res: Response) => {
-    const language = req.query.language as string || "fr";
+    // Support both 'language' and 'lang' query parameters for flexibility
+    const language = (req.query.language || req.query.lang) as string || "fr";
     const qaItems = await storage.getAllChatbotQa(language);
     res.json(qaItems);
   });

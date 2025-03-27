@@ -2,20 +2,48 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useQuery } from "@tanstack/react-query";
 
 type Message = {
   type: "user" | "bot";
   text: string;
 };
 
+type ChatbotQa = {
+  id: number;
+  language: string;
+  keywords: string[];
+  question: string;
+  answer: string;
+};
+
 const ChatbotWidget = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<Message[]>([
     { type: "bot", text: t("chatbot.greeting") },
   ]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const currentLanguage = i18n.language || "fr";
+
+  // Fetch chatbot QA pairs based on the current language
+  const { data: qaItems } = useQuery<ChatbotQa[]>({
+    queryKey: ['/api/chatbot/qa', currentLanguage],
+    queryFn: async () => {
+      const response = await fetch(`/api/chatbot/qa?lang=${currentLanguage}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch chatbot responses');
+      }
+      return response.json();
+    },
+    enabled: isOpen, // Only fetch when the chatbot is open
+  });
+
+  // Effect to update the greeting when language changes
+  useEffect(() => {
+    setMessages([{ type: "bot", text: t("chatbot.greeting") }]);
+  }, [currentLanguage, t]);
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -27,29 +55,25 @@ const ChatbotWidget = () => {
 
     const userMessage = { type: "user" as const, text: message };
     setMessages((prev) => [...prev, userMessage]);
+    const userMessageLower = message.toLowerCase();
     setMessage("");
 
-    // Simple keyword matching for the chatbot
     setTimeout(() => {
+      // Default response
       let responseText = t("chatbot.default");
-
-      if (
-        message.toLowerCase().includes(t("chatbot.keywords.transformation")) ||
-        message.toLowerCase().includes(t("chatbot.keywords.digital"))
-      ) {
-        responseText = t("chatbot.responses.transformation");
-      } else if (
-        message.toLowerCase().includes(t("chatbot.keywords.ai")) ||
-        message.toLowerCase().includes(t("chatbot.keywords.intelligence"))
-      ) {
-        responseText = t("chatbot.responses.ai");
-      } else if (
-        message.toLowerCase().includes(t("chatbot.keywords.price")) ||
-        message.toLowerCase().includes(t("chatbot.keywords.cost"))
-      ) {
-        responseText = t("chatbot.responses.pricing");
+      
+      // If we have QA data, try to match keywords with the message
+      if (qaItems && qaItems.length > 0) {
+        // Find QA pair where at least one keyword is in the user message
+        const matchingQa = qaItems.find(qa => 
+          qa.keywords.some(keyword => userMessageLower.includes(keyword.toLowerCase()))
+        );
+        
+        if (matchingQa) {
+          responseText = matchingQa.answer;
+        }
       }
-
+      
       const botMessage = { type: "bot" as const, text: responseText };
       setMessages((prev) => [...prev, botMessage]);
     }, 500);
