@@ -1,0 +1,176 @@
+{
+  "locale": "fr-FR",
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "laboratory": "Laboratoire",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Transformation numérique et solutions",
+    "titleAccent": "IA",
+    "subtitle": "Consultance en organisation d'entreprise et intégration de solutions digitales innovantes",
+    "cta": {
+      "quote": "Demander un devis",
+      "discover": "Découvrir nos services"
+    }
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Spécialisés dans la transformation numérique, l'organisation d'entreprise et les solutions IA",
+    "learnMore": "En savoir plus",
+    "digital": {
+      "title": "Transformation Numérique",
+      "description": "Accompagnement dans la digitalisation des processus et métiers de votre entreprise pour améliorer l'efficacité opérationnelle."
+    },
+    "organization": {
+      "title": "Organisation d'Entreprise",
+      "description": "Optimisation de la structure et des processus organisationnels pour une meilleure agilité et performance."
+    },
+    "ai": {
+      "title": "Solutions IA",
+      "description": "Intégration d'intelligence artificielle dans vos outils et processus pour automatiser et optimiser vos opérations."
+    }
+  },
+  "stats": {
+    "satisfaction": "Satisfaction client",
+    "projects": "Projets réalisés",
+    "experience": "Années d'expérience",
+    "applications": "Applications développées"
+  },
+  "laboratory": {
+    "title": "Laboratoire",
+    "subtitle": "Découvrez nos applications innovantes, fruits de notre recherche et développement",
+    "pageDescription": "Accédez à notre suite d'outils et d'applications digitales de pointe développés par notre équipe d'innovation.",
+    "apps": {
+      "assistant": {
+        "title": "IA Assistant",
+        "description": "Assistant virtuel intelligent pour l'automatisation de tâches administratives"
+      },
+      "dataviz": {
+        "title": "DataViz Pro",
+        "description": "Outil de visualisation de données avancé pour l'aide à la décision"
+      },
+      "processflow": {
+        "title": "ProcessFlow",
+        "description": "Plateforme de modélisation et d'optimisation des processus métier"
+      },
+      "docugenius": {
+        "title": "DocuGenius",
+        "description": "Solution d'analyse et de génération de documents assistée par IA"
+      },
+      "chatintegrator": {
+        "title": "ChatIntegrator",
+        "description": "Plateforme d'intégration de chatbots intelligents personnalisables"
+      },
+      "idealab": {
+        "title": "IdeaLab",
+        "description": "Environnement collaboratif d'innovation et de brainstorming"
+      }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Articles sur la transformation numérique, l'organisation d'entreprise et les solutions IA",
+    "pageDescription": "Insights, études de cas et meilleures pratiques de nos experts en transformation numérique et IA.",
+    "readMore": "Lire l'article",
+    "viewAll": "Voir tous les articles",
+    "noPosts": "Aucun article disponible pour le moment.",
+    "post": {
+      "notFound": "Article non trouvé",
+      "unavailable": "L'article demandé n'est pas disponible ou a été supprimé.",
+      "backToBlog": "Retour au blog",
+      "share": "Partager cet article",
+      "moreArticles": "Plus d'articles"
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "pageDescription": "Prenez contact avec nos consultants pour discuter de vos besoins en transformation numérique.",
+    "description": "Vous avez un projet de transformation numérique ou souhaitez en savoir plus sur nos services ? N'hésitez pas à nous contacter.",
+    "email": {
+      "title": "Email"
+    },
+    "phone": {
+      "title": "Téléphone"
+    },
+    "address": {
+      "title": "Adresse"
+    },
+    "social": {
+      "title": "Suivez-nous"
+    },
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "Votre email",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Sélectionnez un sujet",
+      "subjects": {
+        "transformation": "Transformation Numérique",
+        "organization": "Organisation d'Entreprise",
+        "ai": "Solutions IA",
+        "other": "Autre"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Votre message",
+      "send": "Envoyer",
+      "sending": "Envoi en cours..."
+    },
+    "toasts": {
+      "success": {
+        "title": "Message envoyé",
+        "message": "Merci pour votre message. Nous vous répondrons dans les plus brefs délais."
+      },
+      "error": {
+        "title": "Erreur",
+        "message": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer."
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Experts en transformation numérique, organisation d'entreprise et solutions IA",
+    "rights": "Tous droits réservés.",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "services": {
+      "title": "Services",
+      "digital": "Transformation Numérique",
+      "organization": "Organisation d'Entreprise",
+      "ai": "Solutions IA",
+      "strategy": "Conseil Stratégique"
+    },
+    "resources": {
+      "title": "Ressources",
+      "blog": "Blog",
+      "casestudies": "Études de cas",
+      "whitepapers": "Livres blancs",
+      "faq": "FAQ"
+    },
+    "contact": {
+      "title": "Contact"
+    }
+  },
+  "chatbot": {
+    "title": "Assistant ConsultIA",
+    "greeting": "Bonjour ! Je suis l'assistant virtuel de ConsultIA. Comment puis-je vous aider aujourd'hui ?",
+    "inputPlaceholder": "Tapez votre message...",
+    "default": "Merci pour votre message. Un consultant vous répondra dans les plus brefs délais. Pour toute urgence, n'hésitez pas à nous appeler.",
+    "keywords": {
+      "transformation": "transformation",
+      "digital": "digitale",
+      "ai": "ia",
+      "intelligence": "intelligence",
+      "price": "tarif",
+      "cost": "coût"
+    },
+    "responses": {
+      "transformation": "La transformation numérique est au cœur de nos expertises. Nous accompagnons les entreprises dans leur transition vers le digital. Souhaitez-vous plus d'informations sur nos approches ?",
+      "ai": "Nos solutions d'IA sont conçues pour automatiser les processus et améliorer la prise de décision. Nous proposons des solutions sur mesure adaptées à votre secteur d'activité.",
+      "pricing": "Nos tarifs varient selon vos besoins spécifiques. Nous proposons un premier rendez-vous gratuit pour évaluer votre projet. Souhaitez-vous être contacté par un de nos consultants ?"
+    }
+  }
+}
