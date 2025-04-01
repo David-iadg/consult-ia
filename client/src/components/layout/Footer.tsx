@@ -15,14 +15,8 @@ const Footer = () => {
               {t('footer.tagline')}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-white transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/consult-ia/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors" aria-label="Twitter">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors" aria-label="Facebook">
-                <i className="fab fa-facebook-f"></i>
               </a>
             </div>
           </div>
@@ -50,17 +44,23 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-medium font-inter mb-4">{t('footer.contact.title')}</h3>
             <ul className="space-y-2">
-              <li className="flex items-center text-gray-300">
-                <i className="fas fa-envelope mr-2"></i>
-                <span>contact@consultia.fr</span>
+              <li>
+                <Link href="/contact" className="flex items-center text-gray-300 hover:text-white transition-colors">
+                  <i className="fas fa-paper-plane mr-2"></i>
+                  <span>{t('footer.contact.form')}</span>
+                </Link>
               </li>
-              <li className="flex items-center text-gray-300">
-                <i className="fas fa-phone mr-2"></i>
-                <span>+33 1 23 45 67 89</span>
+              <li>
+                <a href="https://www.linkedin.com/company/consult-ia/" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-white transition-colors">
+                  <i className="fab fa-linkedin-in mr-2"></i>
+                  <span>LinkedIn</span>
+                </a>
               </li>
-              <li className="flex items-center text-gray-300">
-                <i className="fas fa-map-marker-alt mr-2"></i>
-                <span>123 Avenue de l'Innovation, Paris</span>
+              <li>
+                <a href="https://consult-ia.com" className="flex items-center text-gray-300 hover:text-white transition-colors">
+                  <i className="fas fa-globe mr-2"></i>
+                  <span>consult-ia.com</span>
+                </a>
               </li>
             </ul>
           </div>

@@ -151,7 +151,8 @@
       "faq": "FAQ"
     },
     "contact": {
-      "title": "Contacto"
+      "title": "Contacto",
+      "form": "Formulario de contacto"
     }
   },
   "chatbot": {

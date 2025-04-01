@@ -148,7 +148,8 @@
       "faq": "FAQ"
     },
     "contact": {
-      "title": "Contact"
+      "title": "Contact",
+      "form": "Contact Form"
     }
   },
   "chatbot": {
