@@ -13,6 +13,9 @@ const HeroSection = () => {
           <h1 className="text-4xl md:text-5xl font-bold font-inter mb-4 leading-tight">
             {t('hero.title')} <span className="text-accent">{t('hero.titleAccent')}</span>
           </h1>
+          <p className="text-2xl italic font-light mb-2">
+            L'expertise humaine amplifiée par l'intelligence artificielle
+          </p>
           <p className="text-xl mb-8">
             {t('hero.subtitle')}
           </p>

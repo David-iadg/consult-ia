@@ -3,7 +3,8 @@ import { Link, useLocation } from "wouter";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { Button } from "@/components/ui/button";
-import logoWithText from "../../assets/Logo-consultia-texte.png";
+import logoWithText from "../../assets/Logo-consultia-sans-slogan.png";
+// Slogan: "L'expertise humaine amplifiée par l'intelligence artificielle"
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
