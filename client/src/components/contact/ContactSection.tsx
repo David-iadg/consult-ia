@@ -30,7 +30,6 @@ import {
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
-  subject: z.string({ required_error: "Please select a subject" }),
   message: z.string().min(10, { message: "Message must be at least 10 characters" }),
 });
 
@@ -45,7 +44,6 @@ const ContactSection = () => {
     defaultValues: {
       name: "",
       email: "",
-      subject: "",
       message: "",
     },
   });
@@ -142,30 +140,7 @@ const ContactSection = () => {
                     )}
                   />
                   
-                  <FormField
-                    control={form.control}
-                    name="subject"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t('contact.form.subject')}</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder={t('contact.form.subjectPlaceholder')} />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="transformation">{t('contact.form.subjects.transformation')}</SelectItem>
-                            <SelectItem value="organisation">{t('contact.form.subjects.organization')}</SelectItem>
-                            <SelectItem value="ia">{t('contact.form.subjects.ai')}</SelectItem>
-                            <SelectItem value="autre">{t('contact.form.subjects.other')}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
+
                   <FormField
                     control={form.control}
                     name="message"
