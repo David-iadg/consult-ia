@@ -28,6 +28,8 @@ export const posts = pgTable("posts", {
   category: text("category").notNull(),
   date: timestamp("date").notNull().defaultNow(),
   authorId: integer("author_id").references(() => users.id),
+  language: text("language").notNull().default("fr"),
+  image: text("image"), // Additional image field for flexibility
 });
 
 export const insertPostSchema = createInsertSchema(posts).omit({
@@ -45,7 +47,9 @@ export const applications = pgTable("applications", {
   description: text("description").notNull(),
   icon: text("icon").notNull(),
   url: text("url").notNull(),
-  order: integer("order").notNull(),
+  link: text("link"), // Additional field to store external link, similar to url
+  order: integer("order").notNull().default(0),
+  language: text("language").notNull().default("fr"),
 });
 
 export const insertApplicationSchema = createInsertSchema(applications).omit({
