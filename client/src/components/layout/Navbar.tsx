@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { Button } from "@/components/ui/button";
+import logoWithText from "../../assets/Logo-consultia-texte.png";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,9 +23,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-primary text-2xl font-bold font-inter">
-              ConsultIA
-            </span>
+            <img src={logoWithText} alt="ConsultIA Logo" className="h-14" />
           </Link>
 
           {/* Desktop Navigation */}
