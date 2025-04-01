@@ -10,6 +10,8 @@ import {
   insertChatbotQaSchema
 } from "@shared/schema";
 import * as linkedInService from "./services/linkedin";
+import { upload, handleMulterError } from "./services/upload";
+import path from "path";
 import session from "express-session";
 import MemoryStore from "memorystore";
 
@@ -341,6 +343,54 @@ export async function registerRoutes(app: Express): Promise<Server> {
         message: "Erreur lors du partage sur LinkedIn", 
         error: error instanceof Error ? error.message : String(error) 
       });
+    }
+  });
+
+  // Image Upload Route
+  app.post("/api/upload", requireAuth, upload.single("image"), handleMulterError, (req: Request, res: Response) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ message: "No file uploaded" });
+      }
+      
+      // Get the file path and create URL
+      const filePath = req.file.path;
+      const fileUrl = `/uploads/${path.basename(filePath)}`;
+      
+      // Return success with file URL
+      res.json({ 
+        success: true, 
+        fileUrl: fileUrl,
+        fileName: req.file.originalname
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        message: "Upload failed", 
+        error: error instanceof Error ? error.message : "Unknown error" 
+      });
+    }
+  });
+
+  // Serve uploaded files
+  app.use('/uploads', (req, res, next) => {
+    const uploadPath = path.join(process.cwd(), 'uploads');
+    try {
+      const options = {
+        root: uploadPath,
+        dotfiles: 'deny' as const,
+        headers: {
+          'Cache-Control': 'max-age=31536000'
+        }
+      };
+      
+      const fileName = req.path.replace(/^\/+/, '');
+      res.sendFile(fileName, options, (err) => {
+        if (err) {
+          next();
+        }
+      });
+    } catch (error) {
+      next();
     }
   });
 

@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
+import { RichTextEditor } from "@/components/ui/rich-text-editor";
 import { Post } from "@shared/schema";
 
 export function BlogAdminSection() {
@@ -27,6 +28,7 @@ export function BlogAdminSection() {
   const [language, setLanguage] = useState(i18n.language || "fr");
   const [excerpt, setExcerpt] = useState("");
   const [category, setCategory] = useState("general");
+  const [isUploading, setIsUploading] = useState(false);
   
   const { data: posts = [], isLoading } = useQuery({
     queryKey: ["/api/posts"],
@@ -172,6 +174,42 @@ export function BlogAdminSection() {
     setSlug(slugified);
   };
   
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) return;
+    
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    
+    try {
+      setIsUploading(true);
+      
+      const response = await apiRequest("/api/upload", {
+        method: "POST",
+        body: formData,
+        // Don't set Content-Type header, let browser set it with boundary
+      });
+      
+      if (response.success && response.fileUrl) {
+        // Set the image URL in the form
+        setImage(response.fileUrl);
+        toast({
+          title: t("admin.blog.uploadSuccess"),
+          description: t("admin.blog.imageUploaded")
+        });
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      toast({
+        title: t("admin.blog.uploadError"),
+        description: t("admin.blog.uploadFailed"),
+        variant: "destructive"
+      });
+    } finally {
+      setIsUploading(false);
+    }
+  };
+  
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
@@ -291,12 +329,37 @@ export function BlogAdminSection() {
             
             <div>
               <Label htmlFor="image">{t("admin.blog.imageUrl")}</Label>
-              <Input
-                id="image"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-                placeholder="https://..."
-              />
+              <div className="grid grid-cols-4 gap-3">
+                <div className="col-span-3">
+                  <Input
+                    id="image"
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}
+                    placeholder="https://... or upload"
+                  />
+                </div>
+                <div>
+                  <label className="relative flex h-10 cursor-pointer items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium ring-offset-background hover:bg-accent hover:text-accent-foreground">
+                    {isUploading ? t("admin.blog.uploading") : t("admin.blog.upload")}
+                    <input
+                      type="file"
+                      className="sr-only"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      disabled={isUploading}
+                    />
+                  </label>
+                </div>
+              </div>
+              {image && (
+                <div className="mt-2">
+                  <img 
+                    src={image} 
+                    alt="Aperçu" 
+                    className="max-h-20 rounded border border-input" 
+                  />
+                </div>
+              )}
             </div>
             
             <div className="grid grid-cols-2 gap-4">
@@ -331,13 +394,15 @@ export function BlogAdminSection() {
 
             <div>
               <Label htmlFor="content">{t("admin.blog.content")}</Label>
-              <Textarea
-                id="content"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                className="h-48"
-                required
-              />
+              <div className="min-h-[300px] mt-2">
+                <RichTextEditor
+                  id="content"
+                  value={content}
+                  onChange={setContent}
+                  placeholder={t("admin.blog.contentPlaceholder")}
+                  height="300px"
+                />
+              </div>
             </div>
             
             <DialogFooter>
