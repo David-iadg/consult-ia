@@ -88,15 +88,12 @@
   "contact": {
     "title": "Contact Us",
     "pageDescription": "Get in touch with our consultants to discuss your digital transformation needs.",
-    "description": "Do you have a digital transformation project or want to know more about our services? Feel free to contact us.",
+    "description": "Do you have a digital transformation project or want to know more about our services? Use the form below to contact me directly.",
     "email": {
       "title": "Email"
     },
-    "phone": {
-      "title": "Phone"
-    },
-    "address": {
-      "title": "Address"
+    "website": {
+      "title": "Website"
     },
     "social": {
       "title": "Follow us"

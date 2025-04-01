@@ -5,6 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+// Importing React to fix type issues
+import React from "react";
 import { useToast } from "@/hooks/use-toast";
 import {
   Form,
@@ -50,7 +52,11 @@ const ContactSection = () => {
 
   const contactMutation = useMutation({
     mutationFn: async (data: FormValues) => {
-      return apiRequest("POST", "/api/contact", data);
+      return apiRequest("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
     },
     onSuccess: () => {
       toast({
@@ -86,31 +92,11 @@ const ContactSection = () => {
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
-                    <i className="fas fa-envelope text-primary"></i>
+                    <i className="fas fa-globe text-primary"></i>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium font-inter mb-1">{t('contact.email.title')}</h3>
-                    <p className="text-gray-600">contact@consultia.fr</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
-                    <i className="fas fa-phone text-primary"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium font-inter mb-1">{t('contact.phone.title')}</h3>
-                    <p className="text-gray-600">+33 1 23 45 67 89</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
-                    <i className="fas fa-map-marker-alt text-primary"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium font-inter mb-1">{t('contact.address.title')}</h3>
-                    <p className="text-gray-600">123 Avenue de l'Innovation, 75008 Paris</p>
+                    <h3 className="text-lg font-medium font-inter mb-1">{t('contact.website.title')}</h3>
+                    <p className="text-gray-600">consult-ia.com</p>
                   </div>
                 </div>
               </div>

@@ -96,15 +96,12 @@
   "contact": {
     "title": "Contactez-nous",
     "pageDescription": "Prenez contact avec nos consultants pour discuter de vos besoins en transformation numérique.",
-    "description": "Vous avez un projet de transformation numérique ou souhaitez en savoir plus sur nos services ? N'hésitez pas à nous contacter.",
+    "description": "Vous avez un projet de transformation numérique ou souhaitez en savoir plus sur nos services ? Utilisez le formulaire ci-dessous pour me contacter directement.",
     "email": {
       "title": "Email"
     },
-    "phone": {
-      "title": "Téléphone"
-    },
-    "address": {
-      "title": "Adresse"
+    "website": {
+      "title": "Site web"
     },
     "social": {
       "title": "Suivez-nous"
