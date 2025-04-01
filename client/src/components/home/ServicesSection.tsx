@@ -33,15 +33,15 @@ const ServicesSection = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md">
-              <div className="w-14 h-14 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
-                <i className={`${service.icon} text-primary text-2xl`}></i>
+            <div key={index} className="bg-gray-50 rounded-xl p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-consultia-blue">
+              <div className="w-14 h-14 bg-consultia-blue bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                <i className={`${service.icon} text-consultia-blue text-2xl`}></i>
               </div>
-              <h3 className="text-xl font-bold font-inter mb-3">{service.title}</h3>
+              <h3 className="text-xl font-bold font-inter mb-3 text-consultia-darkGray">{service.title}</h3>
               <p className="text-gray-600 mb-6">
                 {service.description}
               </p>
-              <a href="#" className="flex items-center text-primary font-medium hover:underline">
+              <a href="#" className="flex items-center text-consultia-blue font-medium hover:underline">
                 <span>{t('services.learnMore')}</span>
                 <i className="fas fa-arrow-right ml-2 text-sm"></i>
               </a>

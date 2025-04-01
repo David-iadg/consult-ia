@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Couleurs de la partie gauche (expertise humaine) */
+  --consultia-blue: #0D47A1;
+  --consultia-blue-dark: #062A70;
+  --consultia-blue-light: rgba(13, 71, 161, 0.3);
+  
+  /* Couleurs de la partie droite (intelligence artificielle) */
+  --consultia-gray: #757575;
+  --consultia-gray-light: #9E9E9E;
+  
+  /* Opacités */
+  --consultia-blue-80: rgba(13, 71, 161, 0.8);
+  --consultia-blue-50: rgba(13, 71, 161, 0.5);
+  --consultia-blue-30: rgba(13, 71, 161, 0.3);
+  --consultia-gray-80: rgba(117, 117, 117, 0.8);
+  
+  /* Slogan */
+  --consultia-slogan: "L'expertise humaine amplifiée par l'intelligence artificielle";
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -9,5 +29,51 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  /* Classes bleu */
+  .bg-consultia-blue {
+    background-color: var(--consultia-blue);
+  }
+  
+  .bg-consultia-blue-80 {
+    background-color: var(--consultia-blue-80);
+  }
+  
+  .bg-consultia-blue-50 {
+    background-color: var(--consultia-blue-50);
+  }
+  
+  .bg-consultia-blue-30 {
+    background-color: var(--consultia-blue-30);
+  }
+  
+  .bg-consultia-blue-dark {
+    background-color: var(--consultia-blue-dark);
+  }
+  
+  .text-consultia-blue {
+    color: var(--consultia-blue);
+  }
+  
+  /* Classes gris */
+  .bg-consultia-gray {
+    background-color: var(--consultia-gray);
+  }
+  
+  .bg-consultia-gray-80 {
+    background-color: var(--consultia-gray-80);
+  }
+  
+  .bg-consultia-gray-light {
+    background-color: var(--consultia-gray-light);
+  }
+  
+  .text-consultia-gray {
+    color: var(--consultia-gray);
+  }
+  
+  .text-consultia-gray-light {
+    color: var(--consultia-gray-light);
   }
 }

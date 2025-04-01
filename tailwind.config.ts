@@ -29,6 +29,17 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        consultia: {
+          blue: "var(--consultia-blue)",
+          "blue-dark": "var(--consultia-blue-dark)",
+          "blue-light": "var(--consultia-blue-light)",
+          "blue-80": "var(--consultia-blue-80)",
+          "blue-50": "var(--consultia-blue-50)",
+          "blue-30": "var(--consultia-blue-30)",
+          gray: "var(--consultia-gray)",
+          "gray-light": "var(--consultia-gray-light)",
+          "gray-80": "var(--consultia-gray-80)",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",

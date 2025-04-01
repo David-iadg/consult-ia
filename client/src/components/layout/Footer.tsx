@@ -6,11 +6,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-white py-12">
+    <footer className="bg-consultia-gray text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <div className="text-2xl font-bold font-inter mb-4">ConsultIA</div>
+            <div className="text-2xl font-bold font-inter mb-4">Consult<span className="text-consultia-blue">IA</span></div>
             <p className="text-gray-300 mb-6">
               {t('footer.tagline')}
             </p>
