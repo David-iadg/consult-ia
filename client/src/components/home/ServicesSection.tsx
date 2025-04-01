@@ -10,6 +10,11 @@ const ServicesSection = () => {
       description: t('services.digital.description'),
     },
     {
+      icon: "fas fa-bullhorn",
+      title: t('services.communication.title'),
+      description: t('services.communication.description'),
+    },
+    {
       icon: "fas fa-sitemap",
       title: t('services.organization.title'),
       description: t('services.organization.description'),
@@ -18,6 +23,11 @@ const ServicesSection = () => {
       icon: "fas fa-brain",
       title: t('services.ai.title'),
       description: t('services.ai.description'),
+    },
+    {
+      icon: "fas fa-chart-line",
+      title: t('services.strategy.title'),
+      description: t('services.strategy.description'),
     },
   ];
 
@@ -31,7 +41,7 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index} className="bg-gray-50 rounded-xl p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-consultia-blue">
               <div className="w-14 h-14 bg-consultia-blue bg-opacity-10 rounded-lg flex items-center justify-center mb-6">

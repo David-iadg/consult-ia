@@ -10,15 +10,19 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black opacity-10"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold font-inter mb-4 leading-tight">
-            {t('hero.title')} <span className="text-white">{t('hero.titleAccent')}</span>
+          <h1 className="text-5xl md:text-6xl font-bold font-inter mb-4 leading-tight">
+            {t('hero.title')}
           </h1>
-          <p className="text-2xl italic font-light mb-2">
-            L'expertise humaine amplifiée par l'intelligence artificielle
-          </p>
-          <p className="text-xl mb-8">
+          <p className="text-2xl italic font-light mb-6">
             {t('hero.subtitle')}
           </p>
+          <div className="flex flex-wrap gap-3 mb-8">
+            <span className="bg-consultia-blue-80 px-4 py-2 rounded-full text-sm font-medium">Transformation numérique</span>
+            <span className="bg-consultia-blue-80 px-4 py-2 rounded-full text-sm font-medium">Communication stratégique</span>
+            <span className="bg-consultia-blue-80 px-4 py-2 rounded-full text-sm font-medium">Analyse organisationnelle</span>
+            <span className="bg-consultia-blue-80 px-4 py-2 rounded-full text-sm font-medium">Solutions IA</span>
+            <span className="bg-consultia-blue-80 px-4 py-2 rounded-full text-sm font-medium">Stratégie digitale</span>
+          </div>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <Link href="/contact">
               <Button className="bg-white text-consultia-blue hover:bg-opacity-90 font-medium py-6 px-6 rounded-lg text-center transition-all transform hover:scale-105 w-full sm:w-auto">

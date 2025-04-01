@@ -8,9 +8,9 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Transformation numérique et solutions",
-    "titleAccent": "IA",
-    "subtitle": "Consultance en organisation d'entreprise et intégration de solutions digitales innovantes",
+    "title": "ConsultIA",
+    "titleAccent": "",
+    "subtitle": "L'expertise humaine amplifiée par l'intelligence artificielle",
     "cta": {
       "quote": "Demander un devis",
       "discover": "Découvrir nos services"
@@ -18,19 +18,27 @@
   },
   "services": {
     "title": "Nos Services",
-    "subtitle": "Spécialisés dans la transformation numérique, l'organisation d'entreprise et les solutions IA",
+    "subtitle": "Une expertise complète pour votre transformation digitale",
     "learnMore": "En savoir plus",
     "digital": {
       "title": "Transformation Numérique",
       "description": "Accompagnement dans la digitalisation des processus et métiers de votre entreprise pour améliorer l'efficacité opérationnelle."
     },
+    "communication": {
+      "title": "Communication Stratégique",
+      "description": "Élaboration de stratégies de communication adaptées à votre vision et à vos objectifs pour renforcer votre image de marque."
+    },
     "organization": {
-      "title": "Organisation d'Entreprise",
-      "description": "Optimisation de la structure et des processus organisationnels pour une meilleure agilité et performance."
+      "title": "Analyse Organisationnelle",
+      "description": "Diagnostic et optimisation de la structure et des processus organisationnels pour une meilleure agilité et performance."
     },
     "ai": {
       "title": "Solutions IA",
       "description": "Intégration d'intelligence artificielle dans vos outils et processus pour automatiser et optimiser vos opérations."
+    },
+    "strategy": {
+      "title": "Stratégie Digitale",
+      "description": "Définition et mise en œuvre de stratégies digitales complètes pour assurer votre positionnement sur le marché numérique."
     }
   },
   "stats": {
@@ -131,7 +139,7 @@
     }
   },
   "footer": {
-    "tagline": "Experts en transformation numérique, organisation d'entreprise et solutions IA",
+    "tagline": "L'expertise humaine amplifiée par l'intelligence artificielle",
     "rights": "Tous droits réservés.",
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité",
@@ -139,9 +147,10 @@
     "services": {
       "title": "Services",
       "digital": "Transformation Numérique",
-      "organization": "Organisation d'Entreprise",
+      "communication": "Communication Stratégique",
+      "organization": "Analyse Organisationnelle",
       "ai": "Solutions IA",
-      "strategy": "Conseil Stratégique"
+      "strategy": "Stratégie Digitale"
     },
     "resources": {
       "title": "Ressources",
