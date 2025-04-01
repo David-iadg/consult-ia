@@ -104,14 +104,8 @@ const ContactSection = () => {
               <div className="mt-10">
                 <h3 className="text-lg font-medium font-inter mb-4">{t('contact.social.title')}</h3>
                 <div className="flex space-x-4">
-                  <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all">
+                  <a href="https://www.linkedin.com/company/consult-ia/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all">
                     <i className="fab fa-linkedin-in"></i>
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all">
-                    <i className="fab fa-facebook-f"></i>
                   </a>
                 </div>
               </div>
