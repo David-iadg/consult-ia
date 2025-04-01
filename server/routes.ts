@@ -9,6 +9,7 @@ import {
   insertUserSchema,
   insertChatbotQaSchema
 } from "@shared/schema";
+import * as linkedInService from "./services/linkedin";
 import session from "express-session";
 import MemoryStore from "memorystore";
 
@@ -16,6 +17,7 @@ import MemoryStore from "memorystore";
 declare module 'express-session' {
   interface SessionData {
     userId?: number;
+    linkedinState?: string;
   }
 }
 
@@ -245,6 +247,100 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Invalid chatbot QA data", errors: error.errors });
       }
       res.status(500).json({ message: "Failed to create chatbot QA" });
+    }
+  });
+
+  // LinkedIn Integration
+  app.get("/api/linkedin/auth", requireAuth, (req: Request, res: Response) => {
+    try {
+      // Générer un état unique pour prévenir les attaques CSRF
+      const state = Math.random().toString(36).substring(2, 15);
+      req.session.linkedinState = state;
+
+      // Générer l'URL d'autorisation
+      const authUrl = linkedInService.getAuthorizationUrl(state);
+      res.json({ authUrl });
+    } catch (error) {
+      console.error("Erreur d'authentification LinkedIn:", error);
+      res.status(500).json({ message: "Erreur lors de l'initialisation de l'authentification LinkedIn" });
+    }
+  });
+
+  app.get("/api/auth/linkedin/callback", async (req: Request, res: Response) => {
+    try {
+      const { code, state } = req.query;
+      
+      // Vérifier l'état pour éviter les attaques CSRF
+      if (!state || state !== req.session.linkedinState) {
+        return res.status(403).json({ message: "État non valide" });
+      }
+
+      if (!req.session.userId) {
+        return res.status(401).json({ message: "Utilisateur non authentifié" });
+      }
+
+      if (!code) {
+        return res.status(400).json({ message: "Code d'autorisation manquant" });
+      }
+
+      // Échanger le code contre un jeton d'accès
+      const accessToken = await linkedInService.getAccessToken(code as string);
+      
+      // Stocker le jeton d'accès
+      linkedInService.storeAccessToken(req.session.userId, accessToken);
+
+      // Rediriger vers la page d'administration
+      res.redirect('/admin?linkedinSuccess=true');
+    } catch (error) {
+      console.error("Erreur lors du callback LinkedIn:", error);
+      res.redirect('/admin?linkedinError=true');
+    }
+  });
+
+  app.get("/api/linkedin/status", requireAuth, async (req: Request, res: Response) => {
+    try {
+      if (!req.session.userId) {
+        return res.status(401).json({ connected: false });
+      }
+
+      const accessToken = linkedInService.getStoredAccessToken(req.session.userId);
+      if (!accessToken) {
+        return res.json({ connected: false });
+      }
+
+      // Vérifier si le jeton est valide
+      const isValid = await linkedInService.verifyAccessToken(accessToken);
+      res.json({ connected: isValid });
+    } catch (error) {
+      res.json({ connected: false });
+    }
+  });
+
+  app.post("/api/linkedin/share", requireAuth, async (req: Request, res: Response) => {
+    try {
+      if (!req.session.userId) {
+        return res.status(401).json({ message: "Utilisateur non authentifié" });
+      }
+
+      const accessToken = linkedInService.getStoredAccessToken(req.session.userId);
+      if (!accessToken) {
+        return res.status(400).json({ message: "Non connecté à LinkedIn" });
+      }
+
+      const { text, title, url, imageUrl } = req.body;
+      if (!text || !title || !url) {
+        return res.status(400).json({ message: "Informations incomplètes pour le partage" });
+      }
+
+      // Partager le contenu
+      const result = await linkedInService.sharePost(accessToken, { text, title, url, imageUrl });
+      res.json({ success: true, result });
+    } catch (error) {
+      console.error("Erreur lors du partage sur LinkedIn:", error);
+      res.status(500).json({ 
+        message: "Erreur lors du partage sur LinkedIn", 
+        error: error instanceof Error ? error.message : String(error) 
+      });
     }
   });
 

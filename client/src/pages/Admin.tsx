@@ -10,6 +10,7 @@ import { BlogAdminSection } from "../components/admin/BlogAdminSection";
 import { LabAdminSection } from "../components/admin/LabAdminSection";
 import { ChatbotAdminSection } from "../components/admin/ChatbotAdminSection";
 import { ContactSubmissionsSection } from "../components/admin/ContactSubmissionsSection";
+import { LinkedInSection } from "../components/admin/LinkedInSection";
 
 export default function Admin() {
   const { t } = useTranslation();
@@ -83,11 +84,12 @@ export default function Admin() {
       </div>
       
       <Tabs defaultValue="blog" className="w-full">
-        <TabsList className="grid grid-cols-4 mb-6">
+        <TabsList className="grid grid-cols-5 mb-6">
           <TabsTrigger value="blog">{t("admin.blogs")}</TabsTrigger>
           <TabsTrigger value="lab">{t("admin.applications")}</TabsTrigger>
           <TabsTrigger value="chatbot">{t("admin.chatbot")}</TabsTrigger>
           <TabsTrigger value="contacts">{t("admin.contacts")}</TabsTrigger>
+          <TabsTrigger value="linkedin">LinkedIn</TabsTrigger>
         </TabsList>
         
         <TabsContent value="blog">
@@ -134,6 +136,18 @@ export default function Admin() {
             </CardHeader>
             <CardContent>
               <ContactSubmissionsSection />
+            </CardContent>
+          </Card>
+        </TabsContent>
+        
+        <TabsContent value="linkedin">
+          <Card>
+            <CardHeader>
+              <CardTitle>{t("admin.linkedin.title")}</CardTitle>
+              <CardDescription>{t("admin.linkedin.description")}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <LinkedInSection />
             </CardContent>
           </Card>
         </TabsContent>

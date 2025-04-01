@@ -6,7 +6,7 @@ const LINKEDIN_CLIENT_ID = process.env.LINKEDIN_CLIENT_ID;
 const LINKEDIN_CLIENT_SECRET = process.env.LINKEDIN_CLIENT_SECRET;
 const REDIRECT_URI = process.env.NODE_ENV === 'production' 
   ? 'https://votredomaine.com/api/auth/linkedin/callback' 
-  : 'http://localhost:5000/api/auth/linkedin/callback';
+  : 'https://93e1e4b2-88ee-458f-aa8c-87dcdd2cf9c5.id.repl.co/api/auth/linkedin/callback';
 
 // URLs de l'API LinkedIn
 const LINKEDIN_AUTH_URL = 'https://www.linkedin.com/oauth/v2/authorization';

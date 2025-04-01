@@ -172,5 +172,35 @@
       "ai": "Nos solutions d'IA sont conçues pour automatiser les processus et améliorer la prise de décision. Nous proposons des solutions sur mesure adaptées à votre secteur d'activité.",
       "pricing": "Nos tarifs varient selon vos besoins spécifiques. Nous proposons un premier rendez-vous gratuit pour évaluer votre projet. Souhaitez-vous être contacté par un de nos consultants ?"
     }
+  },
+  "admin": {
+    "linkedin": {
+      "title": "LinkedIn",
+      "description": "Gérez l'intégration avec LinkedIn pour partager vos articles sur votre profil professionnel.",
+      "checking": "Vérification...",
+      "connected": "Connecté",
+      "disconnected": "Non connecté",
+      "connectTitle": "Connectez-vous à LinkedIn",
+      "connectDescription": "Connectez votre compte LinkedIn pour partager automatiquement vos articles du blog sur votre profil professionnel.",
+      "connectButton": "Se connecter à LinkedIn",
+      "successTitle": "Connexion réussie",
+      "successDescription": "Vous êtes maintenant connecté à LinkedIn. Vous pouvez partager vos articles du blog.",
+      "errorTitle": "Erreur de connexion",
+      "errorDescription": "Une erreur s'est produite lors de la connexion à LinkedIn. Veuillez réessayer.",
+      "authErrorTitle": "Erreur d'authentification",
+      "authErrorDescription": "Une erreur s'est produite lors de l'initialisation de l'authentification LinkedIn. Veuillez réessayer.",
+      "sharePostTitle": "Partager un article",
+      "sharePostDescription": "Sélectionnez un article de blog à partager sur votre profil LinkedIn.",
+      "selectPost": "Sélectionnez un article",
+      "shareMessage": "Message de partage",
+      "shareMessagePlaceholder": "Ajoutez un commentaire à votre partage LinkedIn...",
+      "shareButton": "Partager sur LinkedIn",
+      "shareSuccessTitle": "Partage réussi",
+      "shareSuccessDescription": "Votre article a été partagé avec succès sur LinkedIn.",
+      "shareErrorTitle": "Erreur de partage",
+      "shareErrorDescription": "Une erreur s'est produite lors du partage de l'article sur LinkedIn. Veuillez réessayer.",
+      "noPostSelectedTitle": "Aucun article sélectionné",
+      "noPostSelectedDescription": "Veuillez sélectionner un article à partager."
+    }
   }
 }
